@@ -342,4 +342,4 @@ int main()
     A12(n);
     cout << "Your text has been encoded!" << endl;
 }    
-    
+  
