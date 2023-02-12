@@ -1,11 +1,14 @@
 # 10.02.2023
-
-#--------------------------------------------TASK 1--------------------------------------------------------------------------------------------------------------------
-
 #include <iostream> 
 #include <string>
 #include <fstream>
+#include <array>
+#include <vector>
+#include <locale>
+#include <streambuf>    
 using namespace std;
+
+#--------------------------------------------TASK 1--------------------------------------------------------------------------------------------------------------------
 
 int main()
 {
@@ -129,7 +132,7 @@ int main()
     string str;
     int symb = 0;
     int strings = 0;
-    ifstream a("C:\\Users\\stt\\Desktop\\alice.txt");
+    ifstream a("C:\\Users\\User\\Desktop\\alice.txt");
     if (!a)
         cout << "FILE IS NOT OPEN!" << endl;
     else
@@ -163,3 +166,180 @@ int main()
     out << "Number of numbers - " << Number << endl;
     out.close();
 } 
+
+#--------------------------------------------TASK 3--------------------------------------------------------------------------------------------------------------------    
+void A1(int n)
+{
+    int a;
+    char c;
+    ifstream alice1("C:\\Users\\User\\Desktop\\alice1.txt");
+    ofstream alice2("C:\\Users\\User\\Desktop\\alice2.txt");
+    
+
+    if (!alice1.is_open())
+        cout << "FILE IS NOT OPEN!" << endl;
+    else 
+    {
+        while (!alice1.eof())
+    {
+            c = alice1.get();
+
+            if ((c >= 'A') && ( <= 'Z'))
+            {
+                c = c + (k % 26);
+                if (c > 'Z')
+                    c -= 26;
+                alice2 << c;
+            }
+            if ((c >= 'a') && (c <= 'z'))
+            {
+                c = c + (k % 26);
+                if (c > 'z')
+                    c -= 26;
+                alice2 << c;
+            }
+            if (c == ' ')
+                alice2 << ' ';
+            if (c == '\n')
+                alice2 << '\n';
+        }
+    }
+    
+    alice1.close();
+    alice2.close();
+}
+
+void A2(int n)
+{
+    int a;
+    char c;
+    ifstream alice1("C:\\Users\\User\\Desktop\\alice1.txt");
+    ofstream alice2("C:\\Users\\User\\Desktop\\alice2.txt");
+    
+
+    if (!alice1.is_open())
+        cout << "FILE IS NOT OPEN!" << endl;
+    else
+    {
+        while (!alice1.eof())
+        {
+            c = alice1.get();
+    
+            if ((c >= 'A') && ( <= 'Z'))
+            {
+                c = c + (k % 26);
+                if (c > 'Z')
+                    c -= 26;
+                alice2 << c;
+            }
+            if ((c >= 'a') && (c <= 'z'))
+            {
+                c = c + (k % 26);
+                if (c > 'z')
+                    c -= 26;
+                alice2 << c;
+
+            }
+            if (c == ' ')
+                alice2 << ' ';
+            if (c == '\n')
+                alice2 << '\n';
+
+        }
+    }
+    
+    alice1.close();
+    alice2.close();
+}
+
+void A11(int n)
+{
+    int a;
+    char c;
+    ifstream alice1("C:\\Users\\User\\Desktop\\alice1.txt");
+    ofstream alice2("C:\\Users\\User\\Desktop\\alice2.txt");
+
+    if (!alice1.is_open())
+        cout << "FILE IS NOT OPEN!" << endl;
+    else
+    {
+        while (!alice1.eof())
+        {
+            c = alice1.get();
+            if ((c >= 'A') && (c <= 'Z'))
+            {
+                a = int(c) - int('A');
+                a = (a + k) % 26;
+                a += (int)'A';
+                alice2 << char(a);
+            }
+            if ((c >= 'a') && (buff <= 'z'))
+            {
+                a = int(c) - int('a');
+                a = (a + k) % 26;
+                a += (int)'a';
+                alice2 << char(a);
+            }
+            if (c == ' ')
+                alice2 << ' ';
+            if (c == '\n')
+                alice2 << '\n';                    
+        }
+    }
+    
+    alice1.close();
+    alice2.close();
+}
+
+void A12(int n)
+{
+    int a;
+    char c;
+    ifstream alice1("C:\\Users\\User\\Desktop\\alice1.txt");
+    ofstream alice2("C:\\Users\\User\\Desktop\\alice2.txt");
+
+    if (!alice1.is_open())
+        cout << "FILE IS NOT OPEN!" << endl;
+    else
+    {
+        while (!alice1.eof())
+        {
+            c = alice1.get();
+            if ((c >= 'A') && (c <= 'Z'))
+            {
+                a = int(c) - int('A');
+                a = (a + k) % 26;
+                a += (int)'A';
+                alice2 << char(a);
+            }
+            if ((c >= 'a') && (buff <= 'z'))
+            {
+                a = int(c) - int('a');
+                a = (a + k) % 26;
+                a += (int)'a';
+                alice2 << char(a);
+            }
+            if (c == ' ')
+                alice2 << ' ';
+            if (c == '\n')
+                alice2 << '\n';                    
+        }
+    }
+    
+    alice1.close();
+    alice2.close();
+}
+
+int main()
+{
+    int n;
+    cout << "Enter the number (key) - ";
+    cin >> n;
+    cout << "Program is compiling." << endl;
+    A1(n);
+    A2(n);
+    A11(n);
+    A12(n);
+    cout << "Your text has been encoded!" << endl;
+}    
+    
